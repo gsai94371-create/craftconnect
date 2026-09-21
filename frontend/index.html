@@ -437,9 +437,18 @@ function render(scroll){renderHeader();const y=window.scrollY;$('#app').innerHTM
 window.addEventListener('hashchange',()=>{closeModal();state.galIdx=0;const c=cur();state.role=c.startsWith('a')&&(c==='a'||c.startsWith('a/'))?'artisan':c.startsWith('admin')?'admin':(state.role==='artisan'&&!(c==='a'||c.startsWith('a/'))?'buyer':state.role);if(state.role==='admin'&&!c.startsWith('admin')&&!['market','artisans','artisan','product'].some(x=>c.startsWith(x)))state.role='buyer';render()});
 
 /* ===== WIZARD BINDINGS + EVENTS ===== */
-function addPhoto(f,demo){const key='up-'+(++state.upN);const url=URL.createObjectURL(f);PHOTOS[key]={src:url,alt:'Uploaded product photo: '+f.name};W().photos.push({key,name:f.name,original:url,processed:null,demo:false});render(false)}
+function addPhoto(f,demo=false){
+  if(!f || !f.type || !f.type.startsWith('image/')){toast('Please choose an image file (JPG, PNG, WEBP, etc.).');return}
+  if(f.size>10*1024*1024){toast('Photo is too large. Please choose an image under 10 MB.');return}
+  const key='up-'+(++state.upN);
+  const url=URL.createObjectURL(f);
+  PHOTOS[key]={src:url,alt:'Uploaded product photo: '+f.name};
+  W().photos.push({key,name:f.name,original:url,processed:null,demo:!!demo});
+  render(false);
+}
 function bind(){const ph=$('#photo'),cam=$('#cam'),drop=$('#drop');
-  if(ph)ph.onchange=e=>[...e.target.files].forEach(f=>addPhoto(f));if(cam)cam.onchange=e=>[...e.target.files].forEach(f=>addPhoto(f));
+  if(ph)ph.onchange=e=>{[...e.target.files].forEach(f=>addPhoto(f));e.target.value=''};
+  if(cam)cam.onchange=e=>{[...e.target.files].forEach(f=>addPhoto(f));e.target.value=''};
   if(drop){['dragover','dragenter'].forEach(v=>drop.addEventListener(v,e=>{e.preventDefault();drop.classList.add('on')}));['dragleave','drop'].forEach(v=>drop.addEventListener(v,e=>{e.preventDefault();drop.classList.remove('on')}));drop.addEventListener('drop',e=>[...e.dataTransfer.files].filter(f=>f.type.startsWith('image/')).forEach(f=>addPhoto(f)))}
   const hs=$('#hs');if(hs)hs.onkeydown=e=>{if(e.key==='Enter'){state.filters.q=hs.value;state.role=state.role;location.hash='#/market'}}}
 let rec=null;
@@ -514,6 +523,5 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#nav')&&$('#nav')
 render();
 </script>
 
-<script src="./assets/app.js"></script>
 </body>
 </html>

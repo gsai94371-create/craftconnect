@@ -42,3 +42,6 @@ Open the local URL shown by Vercel.
 ## Persistence
 
 This Vercel version does not use local `db.json` persistence because Vercel functions are stateless. Mutations are runtime-only. Use PostgreSQL or another persistent database before treating the app as production data storage.
+
+## Photo upload fix
+The Vercel-ready build uses the browser File API for product photos, validates image type/size, resets the file input so the same photo can be selected again, and does not load the old duplicate app.js bundle. Uploaded photos are previews in the current browser session; permanent production photo storage should use object storage (for example Vercel Blob or another storage provider).

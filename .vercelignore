@@ -1,0 +1,5 @@
+backend/
+CraftConnect_deploy.zip
+*.log
+.DS_Store
+node_modules/

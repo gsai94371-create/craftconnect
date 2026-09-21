@@ -1,0 +1,1 @@
+module.exports = [{id:1,buyer:'Boutique Collective',need:'50 Cotton Stoles',city:'Hyderabad',cat:'Textiles',status:'open'},{id:2,buyer:'Home & Earth Store',need:'30 Terracotta Pieces',city:'Bengaluru',cat:'Home Decor',status:'open'},{id:3,buyer:'Weave & Wander',need:'100 Handloom Stoles',city:'Chennai',cat:'Textiles',status:'open'}];

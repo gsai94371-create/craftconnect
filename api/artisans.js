@@ -1,0 +1,9 @@
+module.exports = [
+ {id:'radha',name:'Radha Devi',place:'Bhoodan Pochampally',state:'Telangana',craft:'Ikat handloom weaving',langs:['te','hi'],c:'#D93F7F',verified:true,cover:'handloom-women',story:'Radha weaves cotton stoles, dupattas and sarees on a pit loom, using tie-and-dye ikat. This is demo profile text; the artisan writes or dictates the real story.'},
+ {id:'meera',name:'Meera Prajapati',place:'Kutch',state:'Gujarat',craft:'Terracotta pottery',langs:['hi'],c:'#B5502E',verified:true,cover:'terracotta-pots',story:'Demo profile. Wheel-thrown clay ware fired in a wood kiln, hand-painted terracotta diyas, and Kutch mirror-work pieces.'},
+ {id:'jolly',name:'Jolly Boro',place:'Kokrajhar',state:'Assam',craft:'Bamboo and cane weaving',langs:['hi','en'],c:'#4C8C2B',verified:true,cover:'bamboo-weaver',story:'Demo profile. Baskets and storage ware woven from local bamboo.'},
+ {id:'sukru',name:'Sukru Majhi',place:'Dhenkanal',state:'Odisha',craft:'Dhokra metal casting',langs:['hi'],c:'#B8760A',verified:false,cover:'bishnupur-weaver',story:'Demo profile. Lost-wax brass casting in the Dhokra tradition.'},
+ {id:'sunita',name:'Sunita Devi',place:'Madhubani',state:'Bihar',craft:'Madhubani painting',langs:['hi','en'],c:'#C8372D',verified:true,cover:'painted-bottles',story:'Demo profile. Hand-painted Mithila art on handmade paper, and folk-art painted bottles.'},
+ {id:'imran',name:'Imran Pasha',place:'Channapatna',state:'Karnataka',craft:'Lacquered wooden toys',langs:['en','hi'],c:'#37339A',verified:true,cover:'wooden-horse',story:'Demo profile. Lathe-turned wooden toys finished in lacquer, plus carved and hand-painted wooden showpieces.'},
+ {id:'kavita',name:'Kavita Sharma',place:'Jaipur',state:'Rajasthan',craft:'Blue pottery',langs:['hi','en'],c:'#0C7C79',verified:true,cover:'blue-pottery-vase',story:'Demo profile. Hand-painted Jaipur blue pottery, thrown and glazed the traditional way.'}
+];
